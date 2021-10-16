@@ -39,28 +39,19 @@ class HomeController extends Controller
 
     public function download($key)
     {
-
         $query = $this->collectionRef->where('uniqueKey', '=', "$key");
         $documents = $query->documents();
 
-        foreach ($documents as $document) {
+        return view('download', compact('documents'));
+
+//        foreach ($documents as $document) {
             // data() will show actual data
-            dd($document->data());
+//            dd($document->data()['url']);
             // id() will show document id
 //            dd($document->id());
-        }
-
-        dd('nothing found');
-
-        dd($collection->where('uniqueKey', '=', 'a')->documents());
-
-        $stuRef = app('firebase.firestore')->database()->collection('User')->newDocument();
-        $stuRef->set([
-            'firstname' => '2',
-            'lastname' => '3',
-            'age' => 100
-        ]);
-        die('check_2');
+//        }
+//
+//        dd('nothing found');
     }
 
 }

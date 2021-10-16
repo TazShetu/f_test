@@ -1,0 +1,48 @@
+// firebase storage rules to upload file    // by default read is true (public)
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write;
+    }
+  }
+}
+
+// firebase storage rules to download file
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+
+
+
+
+
+https://github.com/kreait/laravel-firebase
+
+https://www.youtube.com/watch?v=iIvXPTI5olw
+
+
+
+extension=grpc.so
+ gRPC extension to php
+https://cloud.google.com/php/grpc
+https://pecl.php.net/package/grpc
+https://pecl.php.net/package/gRPC/1.41.0/windows
+
+// echo phpinfo();
+// will show php version
+// in C:\xampp\php folder look for the file before php-cgi.exe // here it is php7ts.dll 	// will show ts or nts
+// echo (PHP_INT_SIZE == 4 ? '32 bit' : '64 bit'); 	// will show x86(32 bit) or x64(64bit)
+
+
+	// copy php_grpc.dll to C:\xampp\php\ext
+	// edit php.ini in C:\xampp\php
+		// add extension=php_grpc.dll just before extension=mysqli
+
+
+
+https://firebase.google.com/docs/firestore/quickstart
