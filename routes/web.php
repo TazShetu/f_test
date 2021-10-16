@@ -19,5 +19,6 @@ Route::get('/', function () {
 });
 
 Route::view('/upload', 'upload')->name('upload');
+Route::get('/ajax/post_firebase', [HomeController::class, 'ajaxFirebase']);
 
 Route::get('/download/{key}', [HomeController::class, 'download'])->name('download');

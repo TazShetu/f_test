@@ -54,7 +54,19 @@ document.getElementById('file').addEventListener('change', (e) => {
     },
     () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log('File available at ', downloadURL);
+            var url = downloadURL;
+            var key = $("#uniqueKey").val();
+            $.ajax({
+                url: '/ajax/post_firebase',
+                data: {
+                    url: url,
+                    key: key
+                },
+                method: "GET",
+                success: function (r) {
+                    console.log(r);
+                }
+            });
         });
     });
 });

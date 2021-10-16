@@ -13,16 +13,34 @@ use Kreait\Firebase\Firestore;
 class HomeController extends Controller
 {
 
-//    public function __construct(Firestore $firestore)
-//    {
-//        $this->firestore = $firestore;
-//    }
+    private $collectionRef;
 
-    public function download(Firestore $firestore, $key)
+    public function __construct(Firestore $firestore)
     {
         $db = $firestore->database();
-        $collectionRef = $db->collection('stickers');
-        $query = $collectionRef->where('uniqueKey', '=', "$key");
+        $this->collectionRef = $db->collection('stickers');
+    }
+
+    public function ajaxFirebase(Request $request)
+    {
+        if (request()->ajax()) {
+            $key = $request->key;
+            $url = $request->url;
+            $newDocument = $this->collectionRef->newDocument();
+            $newDocument->set([
+                'uniqueKey' => $key,
+                'url' => $url
+            ]);
+            return json_encode(['success' => true]);
+        } else {
+            return json_encode(['success' => false]);
+        }
+    }
+
+    public function download($key)
+    {
+
+        $query = $this->collectionRef->where('uniqueKey', '=', "$key");
         $documents = $query->documents();
 
         foreach ($documents as $document) {
@@ -40,7 +58,7 @@ class HomeController extends Controller
         $stuRef->set([
             'firstname' => '2',
             'lastname' => '3',
-            'age'    => 100
+            'age' => 100
         ]);
         die('check_2');
     }

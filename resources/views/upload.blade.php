@@ -10,9 +10,12 @@
 <body>
 
 <form action="">
+    <input type="text" id="uniqueKey" placeholder="key" style="margin-bottom: 10px;">
+    <br>
     <input type="file" id="file">
 </form>
 
+<script src="{{asset('js/jquery3.6.js')}}"></script>
 <script type="module" src="{{asset('js/firebase_upload.js')}}"></script>
 
 </body>
