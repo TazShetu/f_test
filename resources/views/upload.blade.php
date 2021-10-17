@@ -8,10 +8,16 @@
     <title>Upload</title>
 </head>
 <body>
-
+<a href="{{route('download', ['key' => 'AADZ17'])}}">Download</a>
+<hr>
 <form action="">
-    <input type="text" id="uniqueKey" placeholder="key" style="margin-bottom: 10px;">
+    <input type="text" id="collection" value="smile" style="margin-bottom: 10px;">
     <br>
+    <select name="" id="is_new">
+        <option value="no">No</option>
+        <option value="yes">yes</option>
+    </select>
+    <hr>
     <input type="file" id="file">
 </form>
 

@@ -10,6 +10,6 @@
 <body>
 <a href="{{route('upload')}}">Upload</a>
 <hr>
-<a href="{{route('download', ['key' => 'a'])}}">Download</a>
+<a href="{{route('download', ['key' => 'AADZ17'])}}">Download</a>
 </body>
 </html>

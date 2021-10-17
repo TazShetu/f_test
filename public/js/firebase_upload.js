@@ -55,12 +55,14 @@ document.getElementById('file').addEventListener('change', (e) => {
     () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             var url = downloadURL;
-            var key = $("#uniqueKey").val();
+            var collection = $("#collection").val();
+            var is_new = $("#is_new").val();
             $.ajax({
                 url: '/ajax/post_firebase',
                 data: {
                     url: url,
-                    key: key
+                    collection: collection,
+                    is_new: is_new
                 },
                 method: "GET",
                 success: function (r) {

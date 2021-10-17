@@ -8,6 +8,8 @@
     <title>Download</title>
 </head>
 <body>
+<a href="{{route('upload')}}">Upload</a>
+<hr>
 @forelse($documents as $document)
     <img src="{{$document->data()['url']}}" alt="image" style="max-width: 200px; max-height: 200px">
     <hr>
